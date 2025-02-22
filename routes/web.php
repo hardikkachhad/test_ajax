@@ -29,3 +29,51 @@ Route::post('/store',[poductController::class,'store'])->name('store');
 Route::get('/edit/{id}',[poductController::class, 'edit'])->name('edit');
 Route::put('/update/{id}',[poductController::class, 'update'])->name('update');
 Route::get('/delete/{id}',[poductController::class, 'delete'])->name('delete');
+
+
+ // public function store(Request $request)
+ //    {
+ //        $request->validate([
+ //            'name' => 'required|string|max:255',
+ //            'category' => 'required|exists:categories,id',
+ //            'image' => 'required|image',
+ //            'images.*' => 'image',
+ //            'hobbies' => 'required|array',
+ //            'hobbies.*' => 'string|max:255',
+ //        ]);
+
+ //        // Create new product
+ //        $product = new product();
+ //        $product->category_id = $request->category;
+ //        $product->name = $request->name;
+
+ //        // Save single image
+ //        $image = $request->file('image');
+ //        $filename = time() . '_' . $image->getClientOriginalName();
+ //        $image->move(public_path('product/image/'), $filename);
+ //        $product->image = $filename;
+
+ //        $product->save();
+
+ //        // Save multiple images (no `if` condition, only `foreach`)
+ //        foreach ($request->file('images') as $image) {
+ //            $filename = time() . '_' . $image->getClientOriginalName();
+ //            $image->move(public_path('products/image/'), $filename);
+
+ //            productimage::create([
+ //                'product_id' => $product->id,
+ //                'productimage' => $filename,
+ //            ]);
+ //        }
+
+ //        // Save multiple hobbies (no `if` condition, only `foreach`)
+ //        foreach ($request->hobbies as $hobby) {
+ //            ProductHobby::create([
+ //                'product_id' => $product->id,
+ //                'hobby_name' => $hobby,
+ //            ]);
+ //        }
+
+ //        return redirect()->route('products')->with('success', 'Product created successfully');
+ //    }
+
